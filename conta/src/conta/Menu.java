@@ -2,7 +2,10 @@ package conta;
 
 import java.util.Scanner;
 
+
 import conta.model.Conta;
+import conta.model.ContaCorrente;
+import conta.model.ContaPoupanca;
 import conta.util.Cores;
 
 public class Menu {
@@ -12,7 +15,7 @@ public class Menu {
 
 		Scanner leia = new Scanner(System.in);
 //CRIAMOS O OBJETO CONTA C1
-		Conta c1 = new Conta(1, 123, 1, "Erica Araújo", 30000.0f);
+		/*Conta c1 = new Conta(1, 123, 1, "Erica Araújo", 30000.0f);
 //VIZUALIZAMOS OS DADOS DA CONTA C1
 		c1.visualizar();
 //ALTERAMOS OS DADOS DA CONTA C1
@@ -33,6 +36,38 @@ public class Menu {
 		c1.depositar(10000.0f);
 //VISUALIZAMOS OS DADOS DA CONTA C1	APOS O DEPOSITO	
 		c1.visualizar();
+		
+		
+//SOBREESCRITA DE METODO ContaCorrente		
+		ContaCorrente c3 = new ContaCorrente(3, 123, 1, "Vitoria", 30000.0f,1000.0f);
+		
+		c3.visualizar();
+		c3.sacar(30900.0f);
+		c3.visualizar();*/
+		
+//TESTE DA CLASSE CONTA
+		Conta c1 = new Conta(1,123,1,"Adriana",10000.0f);
+		c1.visualizar();
+		c1.sacar(12000.0f);
+		c1.visualizar();
+		c1.depositar(5000.0f);
+		c1.visualizar();
+		
+		ContaCorrente cc1 = new ContaCorrente(2,1223,1,"Mariana",15000.0f,1000.0f);
+		cc1.visualizar();
+		cc1.sacar(12000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
+		
+		ContaPoupanca cp1 = new ContaPoupanca(3,123,2,"Victor",100000.0f,15);
+		cp1.visualizar();
+		cp1.sacar(1000.0f);
+		cp1.visualizar();
+		cp1.depositar(5000.0f);
+		cp1.visualizar();
+		
+		
 
 		int opcao;
 
