@@ -29,7 +29,7 @@ System.out.println("\nCriar Contas\n");
 		ContaPoupanca cp1 = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Mariana dos Santos", 4000f, 12);
 		contas.cadastrar(cp1);
 		
-		ContaPoupanca cp2 = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Juliana Ramos", 8000f, 15);
+		ContaPoupanca cp2 = new ContaPoupanca(contas.gerarNumero(), 126, 2, "Juliana Ramos", 8000f, 15);
 		contas.cadastrar(cp2);
 		
 		contas.listarTodas();
@@ -192,6 +192,7 @@ System.out.println("\nCriar Contas\n");
 				valor = leia.nextFloat();
 				
 				//Chamada para o Método Sacar
+				contas.sacar(numero, valor);
 				
 				keyPress();
 				break;
@@ -205,6 +206,7 @@ System.out.println("\nCriar Contas\n");
 				valor = leia.nextFloat();
 				
 				//METODO DEPOSITAR
+				contas.depositar(numero, valor);
 				
 				keyPress();
 				break;
@@ -221,6 +223,7 @@ System.out.println("\nCriar Contas\n");
 				valor = leia.nextFloat();
 				
 				//CHAMADA MÉTODO TRANSFERIR
+				contas.transferir(numero, numeroDestino, valor);
 				
 				keyPress();
 				break;

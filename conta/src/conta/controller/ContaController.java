@@ -8,6 +8,7 @@ import conta.repository.ContaRepository;
 public class ContaController implements ContaRepository {
 
 	private ArrayList<Conta> listaContas = new ArrayList<Conta>();
+	int numero = 0;
 
 	@Override
 	public void procurarPorNumero(int numero) {
@@ -62,26 +63,49 @@ public class ContaController implements ContaRepository {
 
 	@Override
 	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		
+		var conta = buscarNaCollection(numero);
+		if (conta != null) {
+			if(conta.sacar(valor)==true) 
+				System.out.println("O saque foi efetuado com sucesso!");
+			}else
+			System.out.println("A Conta número: " + numero + " não foi encontrada!");
+		
+		
 
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
 		// TODO Auto-generated method stub
-
+		var conta = buscarNaCollection(numero);
+		if (conta != null) {
+				System.out.println("O depósito foi efetuado com sucesso!");
+			}else
+			System.out.println("A Conta número: " + numero + " não foi encontrada!");
 	}
 
 	@Override
 	public void transferir(int numero, int numeroDestino, float valor) {
 		// TODO Auto-generated method stub
-
+		var contaOrigem = buscarNaCollection(numero);
+		var contaDestino = buscarNaCollection(numeroDestino);
+		var conta = buscarNaCollection(numero);
+		if (conta != null && contaDestino != null) {
+				if(contaOrigem.sacar(valor)==true) {
+					contaDestino.depositar(valor);
+				System.out.println("A transferência foi efetuada com sucesso!");
+				}
+			}else
+			System.out.println("A Conta de Origem e/ou Destino não foram encontradas!");
 	}
+
+	
 
 	// Implementar Métodos Auxiliares
 
 	public int gerarNumero() {
-		return listaContas.size() + 1;
+		return ++ numero;
 	}
 
 	public Conta buscarNaCollection(int numero) {
